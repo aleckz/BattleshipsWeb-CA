@@ -2,6 +2,8 @@ feature 'Setting up the board' do
 
   scenario 'creating the boards for the players' do
     visit '/new_game'
+    fill_in('name', with: 'Christian')
+    click_button('Submit')
     click_button('Begin')
     expect(page).to have_content "
     ABCDEFGHIJ
@@ -20,7 +22,13 @@ feature 'Setting up the board' do
    ABCDEFGHIJ"
   end
 
-
-
+  scenario 'placing ships on the board' do
+  	visit '/board'
+  	fill_in('coordinate', with: 'A4')
+  	fill_in('ship', with: 'submarine')
+  	fill_in('direction', with: 'vertically')
+  	click_button('Place')
+  	expect(page).to have_content "4|S"
+	end
 
 end

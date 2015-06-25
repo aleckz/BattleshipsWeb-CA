@@ -24,15 +24,14 @@ class BattleshipsWeb < Sinatra::Base
     else
       erb :creating_username
     end
-  end
+   end
 
-
-
-
+   get '/board' do
+      erb :board
+   end
+  
 
 # posting in params a hash, where name is the key, and input from the user is the value
-
-
 
 
   # start the server if ruby file executed directly
