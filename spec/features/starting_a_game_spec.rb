@@ -26,4 +26,7 @@ feature 'Starting a game' do
     # to actually have content "Steve" on the next page we have to have a POST request
     # which we create using a form, and method in a new views file.
   end
+
+
+  
 end
