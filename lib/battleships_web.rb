@@ -9,12 +9,19 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   get '/new_game' do 
-  	'Identify yourself... Mothafucka'
+    erb :new_game
+  end
+
+  post '/new_game' do
+    @user = params[:name]
+    erb :creating_username
   end
 
 
 
 
+
+# posting in params a hash, where name is the key, and input from the user is the value
 
 
 
