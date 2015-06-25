@@ -1,12 +1,16 @@
 require 'sinatra/base'
 
 class BattleshipsWeb < Sinatra::Base
+ 
+  set :views, proc { File.join(root,'..','views') }
   
   get '/' do
-    'Welcome to Battleships, Mothafucka!'
+    erb :index
   end
 
-
+  get '/new_game' do 
+  	'Identify yourself... Mothafucka'
+  end
 
 
 
