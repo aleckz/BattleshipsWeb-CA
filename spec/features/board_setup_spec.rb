@@ -42,4 +42,19 @@ feature 'Setting up the board' do
 		place_ship
 		expect(page).to have_content 'Coordinate already occupied'
 	end
+
+  scenario 'placing a ship out of bounds' do
+    visit '/board'
+    fill_in('coordinate', with: 'A10')
+    select('Aircraft Carrier', from: 'ship')
+    select('Vertical', from: 'direction')
+    click_button('Place')
+    expect(page).to have_content 'Out of bounds'
+  end
+
+
+
+
+
+
 end

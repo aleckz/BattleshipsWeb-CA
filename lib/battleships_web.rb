@@ -40,7 +40,10 @@ class BattleshipsWeb < Sinatra::Base
   post '/board' do
     # look at Ben's battleships method for placing a ship, and how he passes the arguments.
     # params = { coordinate: 'C4', ship: 'submarine', direction: 'vertically'}
-    place_ship = $game.player_1.place_ship Ship.send(params[:ship]), params[:coordinate], params[:direction]
+    begin
+      place_ship = $game.player_1.place_ship Ship.send(params[:ship]), params[:coordinate], params[:direction]
+    rescue RuntimeError => @error
+    end
     @board = $game.own_board_view $game.player_1
     erb :board
   end
