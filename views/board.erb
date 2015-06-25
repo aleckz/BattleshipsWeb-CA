@@ -2,16 +2,25 @@
 
  <div>
  <form method='POST'>
- 	 Input coordinate
+ 	 <label>Input Coordinate</label>
  	 <input type="text" name="coordinate">
  	 <br>
  	 <br>
- 	 Select a ship type
- 	 <input type="text" name="ship">
- 	 <br>
- 	 <br>
- 	 Choose a direction
- 	 <input type="text" name="direction">
+ 	 <label>Select Ship</label>
+ 	 <select name="ship">
+ 	 	<option value="submarine">Submarine</option>
+ 	 	<option value="cruiser">Cruiser</option>
+ 	 	<option value="destroyer">Destroyer</option>
+ 	 	<option value="battleship">Battleship</option>
+ 	 	<option value="aircraft_carrier">Aircraft Carrier</option>
+ 	 </select>
+ 		<br>
+ 		<br>
+ 		<label>Select Direction</label>
+ 	 <select name="direction">
+ 	 	<option value="horizontally">Horizontal</option>
+ 	 	<option value="vertically">Vertical</option>
+ 	 </select>
  	 <br>
  	 <br>
  	 <input type="submit" value="Place">

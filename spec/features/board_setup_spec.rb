@@ -22,14 +22,24 @@ feature 'Setting up the board' do
    ABCDEFGHIJ"
   end
 
+  def place_ship
+  	fill_in('coordinate', with: 'A4')
+  	select('Submarine', from: 'ship')
+  	select('Vertical', from: 'direction')
+  	click_button('Place')
+  end
+
   scenario 'placing ships on the board' do
   	visit '/board'
-  	fill_in('coordinate', with: 'A4')
-  	fill_in('ship', with: 'submarine')
-  	fill_in('direction', with: 'vertically')
-  	click_button('Place')
+  	place_ship
   	expect(page).to have_content "4|S"
     # the reason we can JUST write "4|S" is because have_content just needs to find part of the content, not all of it - If we're placing a ship on A4 then that content WILL be there, hence the test.
 	end
 
+	scenario 'placing ship in occupied coordinate' do 
+		visit '/board'
+		place_ship
+		place_ship
+		expect(page).to have_content 'Coordinate already occupied'
+	end
 end
