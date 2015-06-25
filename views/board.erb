@@ -1,15 +1,19 @@
- <pre>    ABCDEFGHIJ
-  ------------
- 1|          |1
- 2|          |2
- 3|          |3
- 4|          |4
- 5|          |5
- 6|          |6
- 7|          |7
- 8|          |8
- 9|          |9
-10|          |10
-  ------------
-   ABCDEFGHIJ
- </pre>
+ <pre><%= @board %> </pre>
+
+ <div>
+ <form method='POST'>
+ 	 Input coordinate
+ 	 <input type="text" name="coordinate">
+ 	 <br>
+ 	 <br>
+ 	 Select a ship type
+ 	 <input type="text" name="ship">
+ 	 <br>
+ 	 <br>
+ 	 Choose a direction
+ 	 <input type="text" name="direction">
+ 	 <br>
+ 	 <br>
+ 	 <input type="submit" value="Place">
+ </form>	 
+ </div>

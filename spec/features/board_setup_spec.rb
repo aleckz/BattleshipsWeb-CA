@@ -29,6 +29,7 @@ feature 'Setting up the board' do
   	fill_in('direction', with: 'vertically')
   	click_button('Place')
   	expect(page).to have_content "4|S"
+    # the reason we can JUST write "4|S" is because have_content just needs to find part of the content, not all of it - If we're placing a ship on A4 then that content WILL be there, hence the test.
 	end
 
 end
