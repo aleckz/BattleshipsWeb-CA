@@ -18,7 +18,7 @@ feature 'Starting a game' do
   end
 
   scenario 'user enters name into a text box and clicks submit' do
-    visit '/new_game'
+    visit '/start_game'
     fill_in('name', with: 'Steve')
      #'name' here refers to the value you give to name.
     click_button('Submit')
@@ -28,5 +28,4 @@ feature 'Starting a game' do
   end
 
 
-  
 end

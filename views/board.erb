@@ -1,5 +1,8 @@
- <pre><%= @board %> </pre>
+ <b><u>Your Board</b></u>
+ <pre><b><%= @board %></b></pre>
+ 
  <div>
+ 
  <form method='POST'>
  	 <label>Input Coordinate</label>
  	 <input type="text" name="coordinate"> <%= @error %>
@@ -23,5 +26,13 @@
  	 <br>
  	 <br>
  	 <input type="submit" value="Place">
- </form>	 
+ 	</form>	 
+		
+	<form action='/combat'>
+ 	 	<input type="submit" value="Start Game">
+ 	</form>
+ 	<%= session[:player] %>
+
+ 
+ 
  </div>

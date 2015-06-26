@@ -1,0 +1,11 @@
+ <p><b><u>Your Board</b></u></p>
+ <pre><b><%= @board %></b></pre>
+
+<label>Fire at Coordinate</label>
+<form method='POST'>
+	<input type='text' name='coordinate'>
+	<input type='submit' value='Fire!'>
+</form>
+
+<p><b><u>Opponent's Board</b></u></p>
+<pre><b><%= @opponent_board %></b></pre>
