@@ -12,20 +12,25 @@ class BattleshipsWeb < Sinatra::Base
   set :views, proc { File.join(root,'..','views') }
   
   get '/' do
+    p 'Accessed the homepage'
     erb :index
   end
 
-  get '/start_game' do 
+  get '/start_game' do  # PATH is the url
+    p 'Accessed START GAME path'
     erb :start_game
   end
 
   post '/start_game' do
     @user = params[:name]
     if @user == nil or @user == ''
+      p 'user stays on /start_game'
       erb :start_game
     else
+      p "user entered username: #{@user}"
       erb :creating_username
     end
+
   end
 
 # we are CREATING the INSTANCES of game, board, etc in the controller because this is where you want all your Business/App Logic to be.
@@ -35,9 +40,13 @@ class BattleshipsWeb < Sinatra::Base
     # UNLESS the game has started, player is going to be player 1, and vice versa.
     # $game = Game.new PLayer, Board comes AFTER the unless because if a game already exists, you don't need to initialize another new game.
     unless $game ##
+      p 'the game does not exist: creating $game'
       $game = Game.new Player, Board
+      p 'setting session Player to Player 1'
       session[:player] = 'Player 1'
     else
+      p 'the game does exist'
+      p 'setting session Player to Player 2'
       session[:player] = 'Player 2'
     end
 
